@@ -20,20 +20,20 @@ BORDER = pygame.Rect(WIDTH//2 -5, 0, 10, HEIGHT)
 HEALTH_FONT = pygame.font.SysFont('Aharoni', 40)
 WINNER_FONT = pygame.font.SysFont('Biome', 80)
 
-BULLET_HSOUND = pygame.mixer.Sound(os.path.join('PyGameLearn', 'Grenade+1.mp3'))
-BULLET_FSOUND = pygame.mixer.Sound(os.path.join('PygameLearn', 'Gun+Silencer.mp3'))
+BULLET_HSOUND = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'Grenade+1.mp3'))
+BULLET_FSOUND = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'Gun+Silencer.mp3'))
 
 FPS = 60
 VEL = 5
 
 SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 50, 50
 
-SPACE_BG = pygame.transform.scale(pygame.image.load(os.path.join('PyGameLearn','space.png')),(WIDTH, HEIGHT))
+SPACE_BG = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-prep','space.png')),(WIDTH, HEIGHT))
 
-YELLOW_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGameLearn', 'spaceship_yellow.png'))
+YELLOW_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'spaceship_yellow.png'))
 YELLOW_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(YELLOW_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)
 
-RED_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGameLearn', 'spaceship_red.png'))
+RED_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'spaceship_red.png'))
 RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(RED_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), -90)
 
 YELLOW_HIT = pygame.USEREVENT + 1
