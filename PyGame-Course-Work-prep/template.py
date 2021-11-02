@@ -27,7 +27,7 @@ HOUSE_HEIGHT = 250
 
 SUN = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'NewSunSun.png')),(SUN_WIDTH,SUN_HEIGHT))
 HOUSE = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'NewHouse.png')),(HOUSE_WIDTH,HOUSE_HEIGHT))
-GROUND = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'greenLand.png')), (WIDTH, 500))
+GROUND = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-preps', 'greenLand.png')), (WIDTH, 500))
 
 CX = WIDTH /2
 CY = HEIGHT/2
