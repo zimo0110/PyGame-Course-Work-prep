@@ -1,0 +1,2 @@
+On visual studio please 'open folder' and select 'PyGame-Course-Work-prep-main' for the imported files to work,
+thank you
