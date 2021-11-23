@@ -11,6 +11,7 @@ BLACK = (0,0,0)
 WHITE = (255,255,255)
 BLUE = (50,50,255)
 YELLOW = (255,255,0)
+LIGHT_BLUE = (50,100,255)
 
 pygame.init()
 WIDTH, HEIGHT = 700, 700
@@ -57,7 +58,7 @@ def main():
     pygame.quit()
 
 def draw_board(sun, house, greenLand):
-    WIN.fill(WHITE)
+    WIN.fill(LIGHT_BLUE)
     WIN.blit(GROUND,(0,200))
     WIN.blit(SUN, (sun.x, sun.y))
     WIN.blit(HOUSE, (house.x,house.y))
