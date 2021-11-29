@@ -26,8 +26,8 @@ LPOINT = pygame.USEREVENT + 2
 game_font = pygame.font.SysFont('Biome', 40)
 winner_font = pygame.font.SysFont('Biome', 80)
 
-RACKET_BALL = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'pingPong.mp3'))
-WIN_POINT = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'winPong.mp3'))
+RACKET_BALL = pygame.mixer.Sound(os.path.join('resourcesExtra', 'pingPong.mp3'))
+WIN_POINT = pygame.mixer.Sound(os.path.join('resourcesExtra', 'winPong.mp3'))
 
 def main(): 
     global ball_speed_x, ball_speed_y 

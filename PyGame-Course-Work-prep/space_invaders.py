@@ -19,20 +19,20 @@ pygame.display.set_caption("Dodgy Star Game by ZOIR")
 HEALTH_FONT = pygame.font.SysFont('Aharoni', 40)
 WINNER_FONT = pygame.font.SysFont('Biome', 80)
 
-BULLET_HSOUND = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'Grenade+1.mp3'))
-BULLET_FSOUND = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'Gun+Silencer.mp3'))
+BULLET_HSOUND = pygame.mixer.Sound(os.path.join('resourcesExtra', 'Grenade+1.mp3'))
+BULLET_FSOUND = pygame.mixer.Sound(os.path.join('resourcesExtra', 'Gun+Silencer.mp3'))
 
 FPS = 60
 VEL = 5
 
 SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 40, 40
 
-SPACE_BG = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-prep','space.png')),(WIDTH, HEIGHT))
+SPACE_BG = pygame.transform.scale(pygame.image.load(os.path.join('resourcesExtra','space.png')),(WIDTH, HEIGHT))
 
-invader_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'spaceship_yellow.png'))
+invader_SPACESHIP_IMAGE = pygame.image.load(os.path.join('resourcesExtra', 'spaceship_yellow.png'))
 invader_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(invader_SPACESHIP_IMAGE, (5, 5)), 90)
 
-player_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'spaceship_red.png'))
+player_SPACESHIP_IMAGE = pygame.image.load(os.path.join('resourcesExtra', 'spaceship_red.png'))
 player_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(player_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 180)
 
 INVADER_PLAYER = pygame.USEREVENT + 1

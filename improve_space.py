@@ -1,5 +1,6 @@
 import pygame
 import os
+import random
 
 pygame.mixer.init()
 pygame.font.init()
@@ -20,20 +21,20 @@ BORDER = pygame.Rect(WIDTH//2 -5, 0, 10, HEIGHT)
 HEALTH_FONT = pygame.font.SysFont('Aharoni', 40)
 WINNER_FONT = pygame.font.SysFont('Biome', 80)
 
-BULLET_HSOUND = pygame.mixer.Sound(os.path.join('resourcesExtra', 'Grenade+1.mp3'))
-BULLET_FSOUND = pygame.mixer.Sound(os.path.join('resourcesExtra', 'Gun+Silencer.mp3'))
+BULLET_HSOUND = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'Grenade+1.mp3'))
+BULLET_FSOUND = pygame.mixer.Sound(os.path.join('PyGame-Course-Work-prep', 'Gun+Silencer.mp3'))
 
 FPS = 60
 VEL = 5
 
 SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 50, 50
 
-SPACE_BG = pygame.transform.scale(pygame.image.load(os.path.join('resourcesExtra','space.png')),(WIDTH, HEIGHT))
+SPACE_BG = pygame.transform.scale(pygame.image.load(os.path.join('PyGame-Course-Work-prep','space.png')),(WIDTH, HEIGHT))
 
-YELLOW_SPACESHIP_IMAGE = pygame.image.load(os.path.join('resourcesExtra', 'spaceship_yellow.png'))
+YELLOW_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'spaceship_yellow.png'))
 YELLOW_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(YELLOW_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)
 
-RED_SPACESHIP_IMAGE = pygame.image.load(os.path.join('resourcesExtra', 'spaceship_red.png'))
+RED_SPACESHIP_IMAGE = pygame.image.load(os.path.join('PyGame-Course-Work-prep', 'spaceship_red.png'))
 RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(RED_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), -90)
 
 YELLOW_HIT = pygame.USEREVENT + 1
@@ -71,10 +72,10 @@ def main():
                     Ybullets.append(bullet)
                     BULLET_FSOUND.play()
 
-                if event.key == pygame.K_KP_5 and len(Rbullets) < MAX_BULL:
-                    bullet = pygame.Rect(red.x , red.y + red.height//2 - 2, 10,5)
-                    Rbullets.append(bullet)
-                    BULLET_FSOUND.play()
+                #if event.key == pygame.K_KP_5 and len(Rbullets) < MAX_BULL:
+                 #   bullet = pygame.Rect(red.x , red.y + red.height//2 - 2, 10,5)
+                  #  Rbullets.append(bullet)
+                   # BULLET_FSOUND.play()
 
             if event.type == RED_HIT:
                 red_health -= 1
@@ -97,7 +98,7 @@ def main():
 
         keys_pressed = pygame.key.get_pressed()
         yellow_handle_movement(keys_pressed, yellow)
-        red_handle_movement(keys_pressed, red)
+        red_handle_movement(red, Ybullets)
         
         handle_bullets(Ybullets, Rbullets, red, yellow) 
 
@@ -132,16 +133,20 @@ def yellow_handle_movement(keys_pressed, yellow):
     elif keys_pressed[pygame.K_s] and yellow.y + VEL + yellow.height<HEIGHT: #DOWN
         yellow.y += VEL
 
-def red_handle_movement(keys_pressed, red):
-    if keys_pressed[pygame.K_LEFT] and red.x - VEL> BORDER.x + BORDER.width: #LEFT
-        red.x -= VEL
-    elif keys_pressed[pygame.K_RIGHT] and red.x + VEL + red.width< WIDTH: #RIGHT
-        red.x += VEL
-    elif keys_pressed[pygame.K_UP] and red.y - VEL>0: #UP
-        red.y -= VEL
-    elif keys_pressed[pygame.K_DOWN] and red.y + VEL + red.height<HEIGHT: #DOWN
-        red.y += VEL
-
+def red_handle_movement(red, Ybullets):
+    for bullet in Ybullets:
+        if (red.x - bullet.x) <= 40 and ((red.y - bullet.y) <= 40 or (red.y - bullet.y) <= -40):
+            if bullet.y < red.y and red.y != HEIGHT:
+                red.y += 15
+            elif bullet.y > red.y and red.y != red.height:
+                red.y -= 15
+            elif bullet.y == red.y:
+                while red.y != HEIGHT or red.y != 0:
+                    if red.y > HEIGHT//2 :
+                        red.y -= 15
+                    elif red.y< HEIGHT//2:
+                        red.y +=15
+            
 def handle_bullets(Ybullets, Rbullets, red, yellow):
     for bullet in Ybullets:
         bullet.x += BULL_VEL
